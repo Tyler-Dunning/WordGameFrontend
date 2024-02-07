@@ -10,6 +10,7 @@ function App() {
   const submitAnagrams = async () => {
         setResult("Loading");
         setField(field.toLowerCase());
+        console.log(field);
         if(field.length != 6)
         {
           setResult("Incorrect entry, please enter 6 letters")

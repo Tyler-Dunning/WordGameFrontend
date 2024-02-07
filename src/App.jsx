@@ -9,7 +9,7 @@ function App() {
 
   const submitAnagrams = async () => {
         setResult("Loading");
-        setField(field.toLowerCase());
+        field = field.toLowerCase();
         console.log(field);
         if(field.length != 6)
         {
@@ -37,7 +37,7 @@ function App() {
   
   const submitWordHunt = async () => {
     setResult("Loading");
-    setField(field.toLowerCase());
+    field = field.toLowerCase();
     if(field.length != 6)
     {
       setResult("Incorrect entry, please enter 16 letters")

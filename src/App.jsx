@@ -36,7 +36,7 @@ function App() {
   const submitWordHunt = async () => {
     setResult("Loading");
     const tempField = field.toLowerCase();
-    if(field.length != 6)
+    if(field.length != 16)
     {
       setResult("Incorrect entry, please enter 16 letters")
     }

@@ -10,7 +10,6 @@ function App() {
   const submitAnagrams = async () => {
         setResult("Loading");
         const tempField = field.toLowerCase();
-        console.log(field);
         if(field.length != 6)
         {
           setResult("Incorrect entry, please enter 6 letters")
@@ -31,7 +30,6 @@ function App() {
 
           setField('');
           setResult(res);
-          console.log(val);
       }
   }
   
@@ -58,7 +56,6 @@ function App() {
 
       setField('');
       setResult(res);
-      console.log(val);
 
   }
   }

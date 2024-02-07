@@ -9,7 +9,7 @@ function App() {
 
   const submitAnagrams = async () => {
         setResult("Loading");
-        field = field.toLowerCase();
+        const tempField = field.toLowerCase();
         console.log(field);
         if(field.length != 6)
         {
@@ -17,7 +17,7 @@ function App() {
         }
         else
         {
-          const result = await axios.get(`https://test-flask-woad.vercel.app/anagrams?inputs=${field}`);
+          const result = await axios.get(`https://test-flask-woad.vercel.app/anagrams?inputs=${tempField}`);
           const val = result.data;
 
           let res = "";
@@ -37,14 +37,14 @@ function App() {
   
   const submitWordHunt = async () => {
     setResult("Loading");
-    field = field.toLowerCase();
+    const tempField = field.toLowerCase();
     if(field.length != 6)
     {
       setResult("Incorrect entry, please enter 16 letters")
     }
     else
     {
-      const result = await axios.get(`https://test-flask-woad.vercel.app/wordhunt?inputs=${field}`);
+      const result = await axios.get(`https://test-flask-woad.vercel.app/wordhunt?inputs=${tempField}`);
       const val = result.data;
 
       let res = "";

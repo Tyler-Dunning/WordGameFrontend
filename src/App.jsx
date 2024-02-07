@@ -9,43 +9,57 @@ function App() {
 
   const submitAnagrams = async () => {
         setResult("Loading");
-        const result = await axios.get(`https://test-flask-woad.vercel.app/anagrams?inputs=${field}`);
-        const val = result.data;
-
-        let res = "";
-        for(let i = val.length - 1; i >= 0; i--)
+        setField(field.toLowerCase());
+        if(field.length != 6)
         {
-          for(let k = 0; k < val[i].length; k++)
-          {
-            res += val[i][k] + "\n";
-          }
+          setResult("Incorrect entry, please enter 6 letters")
         }
+        else
+        {
+          const result = await axios.get(`https://test-flask-woad.vercel.app/anagrams?inputs=${field}`);
+          const val = result.data;
 
-        setField('');
-        setResult(res);
-        console.log(val);
-  
+          let res = "";
+          for(let i = val.length - 1; i >= 0; i--)
+          {
+            for(let k = 0; k < val[i].length; k++)
+            {
+              res += val[i][k] + "\n";
+            }
+          }
+
+          setField('');
+          setResult(res);
+          console.log(val);
+      }
   }
   
   const submitWordHunt = async () => {
     setResult("Loading");
-    const result = await axios.get(`https://test-flask-woad.vercel.app/wordhunt?inputs=${field}`);
-    const val = result.data;
-
-    let res = "";
-    for(let i = val.length - 1; i >= 0; i--)
+    setField(field.toLowerCase());
+    if(field.length != 6)
     {
-      for(let k = 0; k < val[i].length; k++)
-      {
-        res += val[i][k] + "\n";
-      }
+      setResult("Incorrect entry, please enter 16 letters")
     }
+    else
+    {
+      const result = await axios.get(`https://test-flask-woad.vercel.app/wordhunt?inputs=${field}`);
+      const val = result.data;
 
-    setField('');
-    setResult(res);
-    console.log(val);
+      let res = "";
+      for(let i = val.length - 1; i >= 0; i--)
+      {
+        for(let k = 0; k < val[i].length; k++)
+        {
+          res += val[i][k] + "\n";
+        }
+      }
 
-  
+      setField('');
+      setResult(res);
+      console.log(val);
+
+  }
   }
 
   return (
